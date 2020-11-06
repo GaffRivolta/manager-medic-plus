@@ -32,6 +32,7 @@
         android:layout_marginStart="93dp"
         android:layout_marginTop="32dp"
         android:layout_marginEnd="93dp"
+        android:onClick="onClick"
         android:text="Button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

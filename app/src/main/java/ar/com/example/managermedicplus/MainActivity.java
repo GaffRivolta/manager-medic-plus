@@ -3,6 +3,7 @@ package ar.com.example.managermedicplus;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.ContentValues;
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
@@ -23,11 +24,11 @@ public class MainActivity extends AppCompatActivity {
 
         medicamentoNombreDroga = (EditText) findViewById(R.id.inputTextMedicamentoNombreDroga);
 
-        ConexionSQLiteHelper conexion = new ConexionSQLiteHelper(this, "bd_manager_medic_plus", null, 1);
-        RegistrarMedicamentos(conexion);
+        RegistrarMedicamentos();
     }
 
-    private void RegistrarMedicamentos(ConexionSQLiteHelper conexion) {
+    private void RegistrarMedicamentos() {
+        ConexionSQLiteHelper conexion = new ConexionSQLiteHelper(this, "bd_manager_medic_plus", null, 1);
         SQLiteDatabase db = conexion.getWritableDatabase();
         ContentValues valores = new ContentValues();
 
@@ -39,18 +40,31 @@ public class MainActivity extends AppCompatActivity {
         Long idResultanteBaseDatos = db.insert(UtilidadesConexion.TABLA_MEDICAMENTO, UtilidadesConexion.CAMPO_MEDICAMENTO_ID, valores);
 
         Toast.makeText(getApplicationContext(),"ID Medicamento: "+idResultanteBaseDatos, Toast.LENGTH_SHORT).show();
+
+        db.close();
     }
 
     public void onClick(View view){
         switch (view.getId()){
             case R.id.btnBuscarMedicamento:
                 buscarMedicamento();
+
+                Intent medicamentoActivityIntent = new Intent(MainActivity.this,MedicamentoActivity.class);
+                Bundle medicamentoActivityBundle = new Bundle();
+
+                medicamentoActivityBundle.putString("droga", "Rivotril");
+
+                medicamentoActivityIntent.putExtras(medicamentoActivityBundle);
+
+                startActivity(medicamentoActivityIntent);
             break;
         }
     }
 
     private void buscarMedicamento() {
-        SQLiteDatabase db = conexion.getReadableDatabase(); // TODO: basado en youtube, seguramente ira en otro lado
+        ConexionSQLiteHelper conexion = new ConexionSQLiteHelper(this, "bd_manager_medic_plus", null, 1);
+        SQLiteDatabase db = conexion.getReadableDatabase();
+
         String[] parametros = {medicamentoNombreDroga.getText().toString()};
         String[] camposDevueltos = {UtilidadesConexion.CAMPO_MEDICAMENTO_DROGA};
 
