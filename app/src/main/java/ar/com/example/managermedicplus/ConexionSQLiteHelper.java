@@ -6,11 +6,9 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 import androidx.annotation.Nullable;
 
-public class ConexionSQLiteHelper extends SQLiteOpenHelper {
+import ar.com.example.managermedicplus.utilidades.UtilidadesConexion;
 
-    final String CREAR_TABLA_MEDICAMENTO = "CREATE TABLE medicamentos (" +
-            "medicamento_id INTEGER, medicamento_nombre TEXT, " +
-            "medicamento_droga TEXT, medicamento_descripcion TEXT)";
+public class ConexionSQLiteHelper extends SQLiteOpenHelper {
 
     public ConexionSQLiteHelper(@Nullable Context context, @Nullable String name, @Nullable SQLiteDatabase.CursorFactory factory, int version) {
         super(context, name, factory, version);
@@ -18,7 +16,7 @@ public class ConexionSQLiteHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL(CREAR_TABLA_MEDICAMENTO);
+        db.execSQL(UtilidadesConexion.CREAR_TABLA_MEDICAMENTO);
     }
 
     @Override
