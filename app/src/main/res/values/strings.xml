@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Manager Medic Plus</string>
+    <string name="ingrese_medicamento_o_droga">Ingrese Medicamento o Droga</string>
 </resources>
