@@ -22,19 +22,18 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/ingrese_medicamento_o_droga"
-            android:inputType="text" />
+            android:inputType="text"
+             />
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
         android:id="@+id/btnBuscarMedicamento"
         android:layout_width="227dp"
         android:layout_height="62dp"
-        android:layout_marginStart="93dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="93dp"
+        android:layout_marginStart="92dp"
+        android:layout_marginTop="41dp"
         android:onClick="onClick"
         android:text="Button"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textInputLayout"
         tools:text="Buscar" />
