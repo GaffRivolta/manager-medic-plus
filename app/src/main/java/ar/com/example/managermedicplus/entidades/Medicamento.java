@@ -1,23 +1,29 @@
 package ar.com.example.managermedicplus.entidades;
 
-public class Medicamento {
+import android.net.Uri;
+
+import java.io.Serializable;
+
+public class Medicamento implements Serializable {
 
     private Integer medicamento_id;
     private String nombre;
     private String droga;
     private String descripcion;
     private String presentacion;
+    private String foto;
     private Integer categoria_id;
 
     public Medicamento() {
     }
 
-    public Medicamento(Integer medicamento_id, String nombre, String droga, String descripcion, String presentacion, Integer categoria_id) {
+    public Medicamento(Integer medicamento_id, String nombre, String droga, String descripcion, String presentacion, String foto, Integer categoria_id) {
         this.medicamento_id = medicamento_id;
         this.nombre = nombre;
         this.droga = droga;
         this.descripcion = descripcion;
         this.presentacion = presentacion;
+        this.foto = foto;
         this.categoria_id = categoria_id;
     }
 
@@ -59,6 +65,14 @@ public class Medicamento {
 
     public void setPresentacion(String presentacion) {
         this.presentacion = presentacion;
+    }
+
+    public String getFoto() {
+        return foto;
+    }
+
+    public void setFoto(String foto) {
+        this.foto = foto;
     }
 
     public Integer getCategoria_id() {

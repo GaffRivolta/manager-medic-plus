@@ -1,6 +1,8 @@
 package ar.com.example.managermedicplus.entidades;
 
-public class Categoria {
+import java.io.Serializable;
+
+public class Categoria implements Serializable {
 
     private Integer categoria_id;
     private String nombre;

@@ -19,12 +19,13 @@ public class UtilidadesConexion {
     public static final String CAMPO_MEDICAMENTO_DROGA = "medicamento_droga";
     public static final String CAMPO_MEDICAMENTO_DESCRIPCION = "medicamento_descripcion";
     public static final String CAMPO_MEDICAMENTO_PRESENTACION = "medicamento_presentacion";
+    public static final String CAMPO_MEDICAMENTO_FOTO = "medicamento_foto";
     public static final String CAMPO_MEDICAMENTO_CATEGORIA_ID = "categoria_id";
 
     public static final String CREAR_TABLA_MEDICAMENTO = "CREATE TABLE " +TABLA_MEDICAMENTO+ " (" +
         CAMPO_MEDICAMENTO_ID+ " INTEGER, " +CAMPO_MEDICAMENTO_NOMBRE+ " TEXT, " +
         CAMPO_MEDICAMENTO_DROGA+" TEXT," +CAMPO_MEDICAMENTO_DESCRIPCION+ " TEXT," +CAMPO_MEDICAMENTO_PRESENTACION+ " TEXT, " +
-        CAMPO_MEDICAMENTO_CATEGORIA_ID+ " INTEGER )";
+        CAMPO_MEDICAMENTO_FOTO+" TEXT, " +CAMPO_MEDICAMENTO_CATEGORIA_ID+ " INTEGER )";
 
     //Constantes campos de tabla farmacia
 
@@ -35,11 +36,12 @@ public class UtilidadesConexion {
     public static final String CAMPO_FARMACIA_HORARIO = "farmacia_horario";
     public static final String CAMPO_FARMACIA_TELEFONO = "farmacia_telefono";
     public static final String CAMPO_FARMACIA_UBICACION = "farmacia_ubicacion";
+    public static final String CAMPO_FARMACIA_FOTO = "farmacia_foto";
 
     public static final String CREAR_TABLA_FARMACIA = "CREATE TABLE " +TABLA_FARMACIA+  " (" +
             CAMPO_FARMACIA_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +CAMPO_FARMACIA_NOMBRE + " TEXT, " +
             CAMPO_FARMACIA_DIRECCION +" TEXT," + CAMPO_FARMACIA_HORARIO + " TEXT," + CAMPO_FARMACIA_TELEFONO +
-            " TEXT, " + CAMPO_FARMACIA_UBICACION + " TEXT )";
+            " TEXT, " + CAMPO_FARMACIA_UBICACION + " TEXT, " + CAMPO_FARMACIA_FOTO + "TEXT )";
 
     //Constantes campos de tabla detalle medicamento
 
