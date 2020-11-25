@@ -21,21 +21,23 @@ public class MedicamentoActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        setContentView(R.layout.activity_medicamento);
-        //pruebaDroga = (TextView) findViewById(R.id.textViewPruebaDroga);
-
         Bundle medicamentoActivityBundle = this.getIntent().getExtras();
+
+        setContentView(R.layout.activity_medicamento);
 
         if (medicamentoActivityBundle != null){
             //String nombreDroga = medicamentoActivityBundle.getString("droga");
             //pruebaDroga.setText("La droga es: "+nombreDroga);
 
             medicamentos = (ArrayList<Medicamento>) medicamentoActivityBundle.getSerializable("listaMedicamentos");
+
             recyclerViewMedicamentos = (RecyclerView) findViewById(R.id.recyclerViewItemsMedicamento);
             recyclerViewMedicamentos.setLayoutManager( new LinearLayoutManager(this));
 
             AdaptadorMedicamento adaptadorMedicamento = new AdaptadorMedicamento(this, medicamentos);
             recyclerViewMedicamentos.setAdapter(adaptadorMedicamento);
         }
+
+
     }
 }

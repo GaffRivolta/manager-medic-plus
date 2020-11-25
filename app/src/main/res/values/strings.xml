@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">Manager Medic Plus</string>
     <string name="ingrese_medicamento_o_droga">Ingrese Medicamento o Droga</string>
+    <string name="search_hint">Busque por medicamento o droga</string>
 </resources>
