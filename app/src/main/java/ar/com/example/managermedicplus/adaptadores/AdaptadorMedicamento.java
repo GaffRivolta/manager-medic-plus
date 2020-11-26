@@ -1,6 +1,7 @@
 package ar.com.example.managermedicplus.adaptadores;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,7 +15,9 @@ import com.bumptech.glide.Glide;
 
 import java.util.ArrayList;
 
+import ar.com.example.managermedicplus.DetalleMecicamentoActivity;
 import ar.com.example.managermedicplus.R;
+import ar.com.example.managermedicplus.entidades.DetalleMedicamento;
 import ar.com.example.managermedicplus.entidades.Medicamento;
 
 public class AdaptadorMedicamento extends RecyclerView.Adapter<AdaptadorMedicamento.ViewHolderMedicamento> {
@@ -53,7 +56,7 @@ public class AdaptadorMedicamento extends RecyclerView.Adapter<AdaptadorMedicame
         return listaMedicamento.size();
     }
 
-    public class ViewHolderMedicamento extends RecyclerView.ViewHolder {
+    public class ViewHolderMedicamento extends RecyclerView.ViewHolder implements View.OnClickListener{
 
         ImageView imagenMedicamento;
         TextView nombreMedicamento;
@@ -63,7 +66,17 @@ public class AdaptadorMedicamento extends RecyclerView.Adapter<AdaptadorMedicame
 
             imagenMedicamento = itemView.findViewById(R.id.imageViewItemMedicamento);
             nombreMedicamento = itemView.findViewById(R.id.textViewNombreItemMedicamento);
+            itemView.setOnClickListener(this);
         }
+
+        @Override
+        public void onClick(View view) {
+            Intent intent = new Intent(miContexto, DetalleMecicamentoActivity.class);
+            intent.putExtra("claveMedicamento", listaMedicamento.get(getAdapterPosition()));
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            miContexto.startActivity(intent);
+        }
+
 
 //        public void asignarMedicamentos(Medicamento medicamento) {
 //            //imagenMedicamento.setImageURI(medicamento.getFoto());
